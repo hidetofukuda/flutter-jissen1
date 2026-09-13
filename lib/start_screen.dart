@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jissen1/image_select_screen.dart';
 import 'l10n/app_localizations.dart';
 
 class StartScreen extends StatelessWidget {
@@ -16,13 +17,17 @@ class StartScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(l10n.helloWorldOn(DateTime.now()), style: TextStyle(fontSize: 32)),
+            Text(l10n.helloWorldOn(DateTime.now()), textAlign: TextAlign.center),
             const SizedBox(height: 16),
             ElevatedButton(
+              child: Text(l10n.pushButton),
               onPressed: () {
                 // ボタンが押されたときの処理
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ImageSelectScreen()),
+                );
               },
-              child: Text(l10n.pushButton),
             ),
           ],
         ),
